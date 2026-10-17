@@ -1,82 +1,593 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#071a35">
-<meta name="description" content="Estudos da Escola Sabatina em Resumo, reflexões bíblicas e devocionais para fortalecer sua fé.">
-<title>Escola Sabatina em Resumo</title>
-<style>
-:root{--navy:#071a35;--navy2:#102b50;--gold:#e7bd62;--cream:#fffaf0;--ink:#182238;--muted:#637083}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:#f6f7fb;line-height:1.6}
-a{color:inherit}.wrap{width:min(1080px,92%);margin:auto}
-header{background:var(--navy);color:white;border-bottom:3px solid var(--gold)}.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 0}.brand{display:flex;align-items:center;gap:11px;font-weight:800;line-height:1.2}.logo{width:43px;height:43px;border:2px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-size:22px}.navlinks{display:flex;gap:18px;flex-wrap:wrap;font-size:.93rem}.navlinks a{text-decoration:none;color:#f3ead7}.hero{background:linear-gradient(130deg,var(--navy),var(--navy2));color:white;padding:58px 0 64px}.hero-grid{display:grid;grid-template-columns:1.35fr .65fr;align-items:center;gap:28px}.eyebrow{color:var(--gold);font-weight:800;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem}.hero h1{font-size:clamp(2rem,5vw,3.55rem);line-height:1.1;margin:12px 0 18px}.hero p{color:#e0e8f3;max-width:650px;font-size:1.08rem}.verse{border:1px solid #8d743f;background:#ffffff0c;border-radius:18px;padding:22px}.verse strong{display:block;color:var(--gold);margin-bottom:8px}.buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}.btn{display:inline-flex;justify-content:center;align-items:center;padding:12px 18px;border-radius:999px;text-decoration:none;font-weight:800;border:1px solid var(--gold)}.btn.gold{background:var(--gold);color:var(--navy)}.btn.outline{color:white}.section{padding:44px 0}.section h2{font-size:clamp(1.5rem,3vw,2.1rem);margin:0 0 8px;color:var(--navy)}.lead{color:var(--muted);margin-top:0}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}.card{background:white;border:1px solid #e5e8ef;border-radius:16px;padding:21px;box-shadow:0 8px 24px #0b1b3510}.icon{font-size:1.8rem}.card h3{margin:8px 0;color:var(--navy)}.card p{color:var(--muted);margin:0 0 15px}.card a{color:#805b10;font-weight:800;text-decoration:none}.video-box{margin-top:20px;background:white;border:1px solid #e5e8ef;border-radius:18px;padding:22px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}.video-box h3{margin:0;color:var(--navy)}.notice{font-size:.9rem;color:var(--muted);margin-top:12px}.devotional{background:var(--cream);border-left:4px solid var(--gold);border-radius:12px;padding:22px;margin-top:20px}.devotional blockquote{font-size:1.1rem;margin:8px 0;color:var(--navy);font-weight:650}footer{background:var(--navy);color:#e5eaf2;padding:28px 0;text-align:center}footer p{margin:5px}.small{font-size:.86rem;color:#bfcadd}
-@media(max-width:720px){.nav{align-items:flex-start;flex-direction:column}.hero{padding:42px 0}.hero-grid{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.video-box{grid-template-columns:1fr}.video-box .btn{width:100%}.navlinks{gap:12px}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071a35">
+  <meta name="description" content="Estudos da Escola Sabatina em Resumo, lições bíblicas e devocionais para fortalecer sua fé.">
+
+  <title>Escola Sabatina em Resumo</title>
+
+  <style>
+    :root {
+      --navy: #071a35;
+      --navy2: #102b50;
+      --gold: #e7bd62;
+      --cream: #fffaf0;
+      --ink: #182238;
+      --muted: #637083;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 20px;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI",
+        Roboto, Arial, sans-serif;
+      color: var(--ink);
+      background: #f6f7fb;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 4px;
+    }
+
+    .wrap {
+      width: min(1080px, 92%);
+      margin: auto;
+    }
+
+    header {
+      background: var(--navy);
+      color: white;
+      border-bottom: 3px solid var(--gold);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-weight: 800;
+      line-height: 1.2;
+      text-decoration: none;
+    }
+
+    .logo {
+      width: 46px;
+      height: 46px;
+      flex-shrink: 0;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--gold);
+      font-size: 24px;
+    }
+
+    .navlinks {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: .93rem;
+    }
+
+    .navlinks a {
+      text-decoration: none;
+      color: #f3ead7;
+    }
+
+    .navlinks a:hover {
+      color: var(--gold);
+    }
+
+    .hero {
+      background: linear-gradient(130deg, var(--navy), var(--navy2));
+      color: white;
+      padding: 58px 0 64px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.35fr .65fr;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: .78rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.55rem);
+      line-height: 1.1;
+      margin: 12px 0 18px;
+    }
+
+    .hero p {
+      color: #e0e8f3;
+      max-width: 650px;
+      font-size: 1.08rem;
+    }
+
+    .verse {
+      border: 1px solid #8d743f;
+      background: #ffffff0c;
+      border-radius: 18px;
+      padding: 22px;
+    }
+
+    .verse strong {
+      display: block;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 25px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 12px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 800;
+      border: 1px solid var(--gold);
+      transition: transform .2s, opacity .2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn.gold {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    .btn.outline {
+      color: white;
+    }
+
+    .section {
+      padding: 44px 0;
+    }
+
+    .section h2 {
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+      margin: 0 0 8px;
+      color: var(--navy);
+      line-height: 1.25;
+    }
+
+    .lead {
+      color: var(--muted);
+      margin-top: 0;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e5e8ef;
+      border-radius: 16px;
+      padding: 21px;
+      box-shadow: 0 8px 24px #0b1b3510;
+    }
+
+    .icon {
+      font-size: 1.8rem;
+    }
+
+    .card h3 {
+      margin: 8px 0;
+      color: var(--navy);
+    }
+
+    .card p {
+      color: var(--muted);
+      margin: 0 0 15px;
+    }
+
+    .card a {
+      color: #805b10;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .video-box {
+      margin-top: 24px;
+      background: white;
+      border: 1px solid #e5e8ef;
+      border-radius: 18px;
+      padding: 22px;
+    }
+
+    .video-box h3 {
+      margin: 0;
+      color: var(--navy);
+    }
+
+    .video-frame {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      margin-top: 18px;
+      overflow: hidden;
+      border-radius: 12px;
+      background: #000;
+    }
+
+    .video-frame iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .notice {
+      font-size: .9rem;
+      color: var(--muted);
+      margin-top: 12px;
+    }
+
+    .devotional {
+      background: var(--cream);
+      border-left: 4px solid var(--gold);
+      border-radius: 12px;
+      padding: 22px;
+      margin-top: 20px;
+    }
+
+    .devotional blockquote {
+      font-size: 1.1rem;
+      margin: 8px 0;
+      color: var(--navy);
+      font-weight: 650;
+    }
+
+    .devotional-action {
+      margin-top: 16px;
+    }
+
+    .channel-section {
+      text-align: center;
+    }
+
+    footer {
+      background: var(--navy);
+      color: #e5eaf2;
+      padding: 28px 0;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 5px;
+    }
+
+    .small {
+      font-size: .86rem;
+      color: #bfcadd;
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .navlinks {
+        gap: 16px;
+      }
+
+      .hero {
+        padding: 42px 0;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+
+      .buttons .btn {
+        width: 100%;
+      }
+
+      .video-box {
+        padding: 16px;
+      }
+
+      .devotional {
+        padding: 18px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .btn {
+        transition: none;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<header>
- <div class="wrap nav">eu
-  <a class="brand" href="#" style="text-decoration:none"><span class="logo">✦</span><span>Escola Sabatina<br>em Resumo</span></a>
-  <nav class="navlinks" aria-label="Navegação principal">
-   <a href="#estudos">Estudos</a><a href="#devocionais">Devocionais</a><a href="#canal">Canal</a>
-  </nav>
- </div>
-</header>
-<main>
-<section class="hero">
- <div class="wrap hero-grid">
-  <div>
-   <div class="eyebrow">Bíblia • Fé • Aprendizado</div>
-   <h1>Estude a Palavra.<br>Fortaleça sua fé.</h1>
-   <p>Bem-vindo ao Escola Sabatina em Resumo! Encontre estudos bíblicos, lições semanais e mensagens para aproximar seu coração de Deus.</p>
-   <div class="buttons">
-    <a class="btn gold" href="https://youtube.com/@escolasabatinaemresumo-f8f?si=HhWop68cQhSPhSjE" target="_blank" rel="noopener">▶ Visitar o canal</a>
-    <a class="btn outline" href="#estudos">Ver os estudos</a>
-   </div>
-  </div>
-  <aside class="verse">
-   <strong>Uma palavra para hoje</strong>
-   “Lâmpada para os meus pés é a tua palavra e luz, para o meu caminho.”<br><span class="small">Salmo 119:105</span>
-  </aside>
- </div>
-</section>
-<section class="section" id="estudos">
- <div class="wrap">
-  <h2>Estudos da Escola Sabatina</h2>
-  <p class="lead">Aprofunde-se na Bíblia com resumos claros e organizados para acompanhar cada semana.</p>
-  <div class="cards">
-   <article class="card"><div class="icon">📖</div><h3>Lição da semana</h3><p>Acompanhe os temas diários e relembre os principais ensinamentos bíblicos.</p><a href="https://youtu.be/uqMXCBQzgGE?si=JI5V71qdNwq3SlaE/video" target="_blank" rel="noopener">Assistir aos estudos →</a></article>
-   <article class="card"><div class="icon">🕊️</div><h3>Reflexões bíblicas</h3><p>Mensagens para compreender melhor a Palavra e aplicar seus princípios à vida.</p><a href="https://youtube.com/@escolasabatinaemresumo-f8f/videos" target="_blank" rel="noopener">Ver vídeos →</a></article>
-   <article class="card"><div class="icon">🎥</div><h3>Todos os vídeos</h3><p>Explore os conteúdos publicados no canal e escolha o estudo que deseja assistir.</p><a href="https://youtube.com/@escolasabatinaemresumo-f8f/videos" target="_blank" rel="noopener">Abrir a videoteca →</a></article>
-  </div>
-  <div class="video-box">
-   <div><h3>Assista no YouTube</h3><p class="lead" style="margin:6px 0 0">Veja os vídeos completos no canal oficial. Novos estudos podem ser adicionados aqui quando você tiver os links específicos.</p></div>
-   <a class="btn gold" href="https://youtu.be/uqMXCBQzgGE?si=YOUqHHINyDnFRfng" target="_blank" rel="noopener">▶ Ver vídeos</a>
-  </div>
-  <p class="notice">Dica: para destacar um vídeo nesta página, substitua o link acima pelo link público do vídeo escolhido. Não usamos reprodução automática nem repetição artificial.</p>
- </div>
-</section>
-<section class="section" id="devocionais" style="background:#fff">
- <div class="wrap">
-  <h2>Minuto com Deus</h2>
-  <p class="lead">Uma palavra de fé para fortalecer o seu coração.</p>
-  <div class="devotional">
-   <strong>Para refletir</strong>
-   <blockquote>“Entrega o teu caminho ao Senhor; confia nele, e ele tudo fará.”</blockquote>
-   <span>Salmo 37:5</span>
-   <div style="margin-top:16px"><a class="btn gold" href="https://youtube.com/@escolasabatinaemresumo-f8f/videos" target="_blank" rel="noopener">Assistir às mensagens</a></div>
-  </div>
- </div>
-</section>
-<section class="section" id="canal">
- <div class="wrap" style="text-align:center">
-  <h2>Vamos estudar a Bíblia juntos?</h2>
-  <p class="lead">Inscreva-se no canal, acompanhe os novos conteúdos e compartilhe com alguém que precisa de uma palavra de esperança.</p>
-  <a class="btn gold" href="https://youtube.com/@escolasabatinaemresumo-f8f?sub_confirmation=1" target="_blank" rel="noopener">🔔 Inscrever-se no canal</a>
- </div>
-</section>
-</main>
-<footer><div class="wrap"><p><strong>Escola Sabatina em Resumo</strong></p><p>Que a Palavra de Deus ilumine o seu caminho.</p><p class="small">Site inicial demonstrativo • Conteúdo e links podem ser atualizados pelo responsável do canal.</p></div></footer>
+
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#inicio" aria-label="Página inicial">
+        <span class="logo" aria-hidden="true">✦</span>
+        <span>Escola Sabatina<br>em Resumo</span>
+      </a>
+
+      <nav class="navlinks" aria-label="Navegação principal">
+        <a href="#estudos">Estudos</a>
+        <a href="#devocionais">Devocionais</a>
+        <a href="#canal">Canal</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio">
+
+    <section class="hero">
+      <div class="wrap hero-grid">
+
+        <div>
+          <div class="eyebrow">Bíblia • Fé • Aprendizado</div>
+
+          <h1>Estude a Palavra.<br>Fortaleça sua fé.</h1>
+
+          <p>
+            Bem-vindo ao Escola Sabatina em Resumo!
+            Encontre estudos bíblicos, lições semanais e mensagens
+            para aproximar seu coração de Deus.
+          </p>
+
+          <div class="buttons">
+            <a
+              class="btn gold"
+              href="https://www.youtube.com/@escolasabatinaemresumo-f8f?sub_confirmation=1"
+              target="_blank"
+              rel="noopener noreferrer">
+              ▶ Inscreva-se no canal
+            </a>
+
+            <a class="btn outline" href="#estudos">
+              Ver os estudos
+            </a>
+          </div>
+        </div>
+
+        <aside class="verse">
+          <strong>Uma palavra para hoje</strong>
+
+          “Lâmpada para os meus pés é a tua palavra e luz,
+          para o meu caminho.”
+
+          <br>
+          <span class="small">Salmo 119:105</span>
+        </aside>
+
+      </div>
+    </section>
+
+    <section class="section" id="estudos">
+      <div class="wrap">
+
+        <h2>Estudos da Escola Sabatina</h2>
+
+        <p class="lead">
+          Aprofunde-se na Bíblia com resumos claros e organizados
+          para acompanhar cada semana.
+        </p>
+
+        <div class="cards">
+
+          <article class="card">
+            <div class="icon" aria-hidden="true">📖</div>
+            <h3>Lição da semana</h3>
+            <p>
+              Acompanhe os temas diários e relembre os principais
+              ensinamentos bíblicos.
+            </p>
+            <a
+              href="https://www.youtube.com/watch?v=uqMXCBQzgGE"
+              target="_blank"
+              rel="noopener noreferrer">
+              Assistir ao vídeo →
+            </a>
+          </article>
+
+          <article class="card">
+            <div class="icon" aria-hidden="true">🕊️</div>
+            <h3>Reflexões bíblicas</h3>
+            <p>
+              Mensagens para compreender melhor a Palavra e aplicar
+              seus princípios à vida.
+            </p>
+            <a
+              href="https://www.youtube.com/@escolasabatinaemresumo-f8f/videos"
+              target="_blank"
+              rel="noopener noreferrer">
+              Ver vídeos →
+            </a>
+          </article>
+
+          <article class="card">
+            <div class="icon" aria-hidden="true">🎥</div>
+            <h3>Todos os vídeos</h3>
+            <p>
+              Explore os conteúdos publicados no canal e escolha
+              o estudo que deseja assistir.
+            </p>
+            <a
+              href="https://www.youtube.com/@escolasabatinaemresumo-f8f/videos"
+              target="_blank"
+              rel="noopener noreferrer">
+              Abrir a videoteca →
+            </a>
+          </article>
+
+        </div>
+
+        <div class="video-box">
+          <h3>Assista ao estudo em destaque</h3>
+
+          <p class="lead">
+            Acompanhe o estudo bíblico diretamente nesta página.
+          </p>
+
+          <div class="video-frame">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/uqMXCBQzgGE"
+              title="Estudo bíblico — Escola Sabatina em Resumo"
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <p class="notice">
+            Se o vídeo não puder ser reproduzido aqui, abra-o
+            diretamente no YouTube. Você pode trocar o vídeo em
+            destaque pelo ID de qualquer vídeo público do seu canal.
+          </p>
+
+          <a
+            class="btn gold"
+            href="https://www.youtube.com/watch?v=uqMXCBQzgGE"
+            target="_blank"
+            rel="noopener noreferrer">
+            ▶ Assistir no YouTube
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <section
+      class="section"
+      id="devocionais"
+      style="background:#fff">
+
+      <div class="wrap">
+        <h2>Minuto com Deus</h2>
+
+        <p class="lead">
+          Uma palavra de fé para fortalecer o seu coração.
+        </p>
+
+        <div class="devotional">
+          <strong>Para refletir</strong>
+
+          <blockquote>
+            “Entrega o teu caminho ao Senhor; confia nele,
+            e ele tudo fará.”
+          </blockquote>
+
+          <span>Salmo 37:5</span>
+
+          <div class="devotional-action">
+            <a
+              class="btn gold"
+              href="https://www.youtube.com/@escolasabatinaemresumo-f8f/videos"
+              target="_blank"
+              rel="noopener noreferrer">
+              Assistir às mensagens
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="section" id="canal">
+      <div class="wrap channel-section">
+
+        <h2>Vamos estudar a Bíblia juntos?</h2>
+
+        <p class="lead">
+          Inscreva-se no canal, acompanhe os novos conteúdos
+          e compartilhe com alguém que precisa de uma palavra
+          de esperança.
+        </p>
+
+        <a
+          class="btn gold"
+          href="https://www.youtube.com/@escolasabatinaemresumo-f8f?sub_confirmation=1"
+          target="_blank"
+          rel="noopener noreferrer">
+          🔔 Inscrever-se no canal
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p><strong>Escola Sabatina em Resumo</strong></p>
+
+      <p>Que a Palavra de Deus ilumine o seu caminho.</p>
+
+      <p class="small">
+        Estudos bíblicos, lições da Escola Sabatina e devocionais.
+      </p>
+    </div>
+  </footer>
+
 </body>
-</html>
+           </html>
