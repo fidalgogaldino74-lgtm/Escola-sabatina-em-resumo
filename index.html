@@ -1,593 +1,353 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#071a35">
-  <meta name="description" content="Estudos da Escola Sabatina em Resumo, lições bíblicas e devocionais para fortalecer sua fé.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Escola Sabatina em Resumo</title>
+<title>FidalgoIPTV</title>
 
-  <style>
-    :root {
-      --navy: #071a35;
-      --navy2: #102b50;
-      --gold: #e7bd62;
-      --cream: #fffaf0;
-      --ink: #182238;
-      --muted: #637083;
-      --white: #ffffff;
-    }
+<style>
+* {
+    box-sizing: border-box;
+}
 
-    * {
-      box-sizing: border-box;
-    }
+body {
+    margin: 0;
+    background: #090711;
+    color: white;
+    font-family: Arial, sans-serif;
+}
 
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 20px;
-    }
+header {
+    background: linear-gradient(120deg, #160a29, #31005c);
+    padding: 22px 10px;
+    text-align: center;
+    border-bottom: 2px solid #a000ff;
+}
 
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, "Segoe UI",
-        Roboto, Arial, sans-serif;
-      color: var(--ink);
-      background: #f6f7fb;
-      line-height: 1.6;
-    }
+.logo {
+    font-size: 29px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 0 12px #a000ff;
+}
 
-    a {
-      color: inherit;
-    }
+.logo span {
+    color: #c000ff;
+}
 
-    a:focus-visible {
-      outline: 3px solid var(--gold);
-      outline-offset: 4px;
-    }
+.slogan {
+    font-size: 11px;
+    color: #d6baff;
+    letter-spacing: 3px;
+    margin-top: 6px;
+}
 
-    .wrap {
-      width: min(1080px, 92%);
-      margin: auto;
-    }
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 15px;
+}
 
-    header {
-      background: var(--navy);
-      color: white;
-      border-bottom: 3px solid var(--gold);
-    }
+.player {
+    background: #000;
+    border: 2px solid #8100d9;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    box-shadow: 0 0 15px #51008a;
+}
 
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 16px 0;
-    }
+video {
+    width: 100%;
+    height: 100%;
+    background: black;
+}
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-      font-weight: 800;
-      line-height: 1.2;
-      text-decoration: none;
-    }
+#canalAtual {
+    padding: 15px;
+    text-align: center;
+    color: #d000ff;
+    font-weight: bold;
+}
 
-    .logo {
-      width: 46px;
-      height: 46px;
-      flex-shrink: 0;
-      border: 2px solid var(--gold);
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      color: var(--gold);
-      font-size: 24px;
-    }
+.formulario {
+    background: #171321;
+    border: 1px solid #512078;
+    padding: 18px;
+    border-radius: 12px;
+    margin-top: 20px;
+}
 
-    .navlinks {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      font-size: .93rem;
-    }
+h3 {
+    color: #d000ff;
+    margin-top: 5px;
+}
 
-    .navlinks a {
-      text-decoration: none;
-      color: #f3ead7;
-    }
+input {
+    width: 100%;
+    padding: 14px;
+    margin: 7px 0;
+    border: 1px solid #502078;
+    border-radius: 7px;
+    background: #241b30;
+    color: white;
+    outline: none;
+}
 
-    .navlinks a:hover {
-      color: var(--gold);
-    }
+input:focus {
+    border-color: #d000ff;
+}
 
-    .hero {
-      background: linear-gradient(130deg, var(--navy), var(--navy2));
-      color: white;
-      padding: 58px 0 64px;
-    }
+button {
+    border: none;
+    padding: 12px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+}
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.35fr .65fr;
-      align-items: center;
-      gap: 28px;
-    }
+.adicionar {
+    background: linear-gradient(90deg, #8100dc, #d000ff);
+    color: white;
+    width: 100%;
+    margin-top: 10px;
+}
 
-    .eyebrow {
-      color: var(--gold);
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: .12em;
-      font-size: .78rem;
-    }
+.lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 10px;
+    margin-top: 15px;
+}
 
-    .hero h1 {
-      font-size: clamp(2rem, 5vw, 3.55rem);
-      line-height: 1.1;
-      margin: 12px 0 18px;
-    }
+.canal {
+    background: #171321;
+    border: 1px solid #512078;
+    padding: 14px;
+    border-radius: 10px;
+    text-align: center;
+    overflow-wrap: anywhere;
+}
 
-    .hero p {
-      color: #e0e8f3;
-      max-width: 650px;
-      font-size: 1.08rem;
-    }
+.canal strong {
+    display: block;
+    margin-bottom: 10px;
+}
 
-    .verse {
-      border: 1px solid #8d743f;
-      background: #ffffff0c;
-      border-radius: 18px;
-      padding: 22px;
-    }
+.canal button {
+    width: 100%;
+    margin-top: 7px;
+}
 
-    .verse strong {
-      display: block;
-      color: var(--gold);
-      margin-bottom: 8px;
-    }
+.assistir {
+    background: #8c00e6;
+    color: white;
+}
 
-    .buttons {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 25px;
-    }
+.excluir {
+    background: #b51e40;
+    color: white;
+}
 
-    .btn {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 12px 18px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 800;
-      border: 1px solid var(--gold);
-      transition: transform .2s, opacity .2s;
-    }
+.vazio {
+    color: #aaa;
+    text-align: center;
+    padding: 20px;
+    grid-column: 1 / -1;
+}
 
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn.gold {
-      background: var(--gold);
-      color: var(--navy);
-    }
-
-    .btn.outline {
-      color: white;
-    }
-
-    .section {
-      padding: 44px 0;
-    }
-
-    .section h2 {
-      font-size: clamp(1.5rem, 3vw, 2.1rem);
-      margin: 0 0 8px;
-      color: var(--navy);
-      line-height: 1.25;
-    }
-
-    .lead {
-      color: var(--muted);
-      margin-top: 0;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 22px;
-    }
-
-    .card {
-      background: white;
-      border: 1px solid #e5e8ef;
-      border-radius: 16px;
-      padding: 21px;
-      box-shadow: 0 8px 24px #0b1b3510;
-    }
-
-    .icon {
-      font-size: 1.8rem;
-    }
-
-    .card h3 {
-      margin: 8px 0;
-      color: var(--navy);
-    }
-
-    .card p {
-      color: var(--muted);
-      margin: 0 0 15px;
-    }
-
-    .card a {
-      color: #805b10;
-      font-weight: 800;
-      text-decoration: none;
-    }
-
-    .card a:hover {
-      text-decoration: underline;
-    }
-
-    .video-box {
-      margin-top: 24px;
-      background: white;
-      border: 1px solid #e5e8ef;
-      border-radius: 18px;
-      padding: 22px;
-    }
-
-    .video-box h3 {
-      margin: 0;
-      color: var(--navy);
-    }
-
-    .video-frame {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      margin-top: 18px;
-      overflow: hidden;
-      border-radius: 12px;
-      background: #000;
-    }
-
-    .video-frame iframe {
-      display: block;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-
-    .notice {
-      font-size: .9rem;
-      color: var(--muted);
-      margin-top: 12px;
-    }
-
-    .devotional {
-      background: var(--cream);
-      border-left: 4px solid var(--gold);
-      border-radius: 12px;
-      padding: 22px;
-      margin-top: 20px;
-    }
-
-    .devotional blockquote {
-      font-size: 1.1rem;
-      margin: 8px 0;
-      color: var(--navy);
-      font-weight: 650;
-    }
-
-    .devotional-action {
-      margin-top: 16px;
-    }
-
-    .channel-section {
-      text-align: center;
-    }
-
-    footer {
-      background: var(--navy);
-      color: #e5eaf2;
-      padding: 28px 0;
-      text-align: center;
-    }
-
-    footer p {
-      margin: 5px;
-    }
-
-    .small {
-      font-size: .86rem;
-      color: #bfcadd;
-    }
-
-    @media (max-width: 720px) {
-      .nav {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .navlinks {
-        gap: 16px;
-      }
-
-      .hero {
-        padding: 42px 0;
-      }
-
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .cards {
-        grid-template-columns: 1fr;
-      }
-
-      .buttons {
-        flex-direction: column;
-      }
-
-      .buttons .btn {
-        width: 100%;
-      }
-
-      .video-box {
-        padding: 16px;
-      }
-
-      .devotional {
-        padding: 18px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      .btn {
-        transition: none;
-      }
-    }
-  </style>
+footer {
+    text-align: center;
+    color: #8d7b9e;
+    padding: 25px 10px;
+    font-size: 12px;
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <div class="wrap nav">
-      <a class="brand" href="#inicio" aria-label="Página inicial">
-        <span class="logo" aria-hidden="true">✦</span>
-        <span>Escola Sabatina<br>em Resumo</span>
-      </a>
+<header>
+    <div class="logo">👑 Fidalgo<span>IPTV</span></div>
+    <div class="slogan">SUA TV, SEM LIMITES</div>
+</header>
 
-      <nav class="navlinks" aria-label="Navegação principal">
-        <a href="#estudos">Estudos</a>
-        <a href="#devocionais">Devocionais</a>
-        <a href="#canal">Canal</a>
-      </nav>
+<div class="container">
+
+    <div class="player">
+        <video id="video" controls playsinline></video>
     </div>
-  </header>
 
-  <main id="inicio">
-
-    <section class="hero">
-      <div class="wrap hero-grid">
-
-        <div>
-          <div class="eyebrow">Bíblia • Fé • Aprendizado</div>
-
-          <h1>Estude a Palavra.<br>Fortaleça sua fé.</h1>
-
-          <p>
-            Bem-vindo ao Escola Sabatina em Resumo!
-            Encontre estudos bíblicos, lições semanais e mensagens
-            para aproximar seu coração de Deus.
-          </p>
-
-          <div class="buttons">
-            <a
-              class="btn gold"
-              href="https://www.youtube.com/@escolasabatinaemresumo-f8f?sub_confirmation=1"
-              target="_blank"
-              rel="noopener noreferrer">
-              ▶ Inscreva-se no canal
-            </a>
-
-            <a class="btn outline" href="#estudos">
-              Ver os estudos
-            </a>
-          </div>
-        </div>
-
-        <aside class="verse">
-          <strong>Uma palavra para hoje</strong>
-
-          “Lâmpada para os meus pés é a tua palavra e luz,
-          para o meu caminho.”
-
-          <br>
-          <span class="small">Salmo 119:105</span>
-        </aside>
-
-      </div>
-    </section>
-
-    <section class="section" id="estudos">
-      <div class="wrap">
-
-        <h2>Estudos da Escola Sabatina</h2>
-
-        <p class="lead">
-          Aprofunde-se na Bíblia com resumos claros e organizados
-          para acompanhar cada semana.
-        </p>
-
-        <div class="cards">
-
-          <article class="card">
-            <div class="icon" aria-hidden="true">📖</div>
-            <h3>Lição da semana</h3>
-            <p>
-              Acompanhe os temas diários e relembre os principais
-              ensinamentos bíblicos.
-            </p>
-            <a
-              href="https://www.youtube.com/watch?v=uqMXCBQzgGE"
-              target="_blank"
-              rel="noopener noreferrer">
-              Assistir ao vídeo →
-            </a>
-          </article>
-
-          <article class="card">
-            <div class="icon" aria-hidden="true">🕊️</div>
-            <h3>Reflexões bíblicas</h3>
-            <p>
-              Mensagens para compreender melhor a Palavra e aplicar
-              seus princípios à vida.
-            </p>
-            <a
-              href="https://www.youtube.com/@escolasabatinaemresumo-f8f/videos"
-              target="_blank"
-              rel="noopener noreferrer">
-              Ver vídeos →
-            </a>
-          </article>
-
-          <article class="card">
-            <div class="icon" aria-hidden="true">🎥</div>
-            <h3>Todos os vídeos</h3>
-            <p>
-              Explore os conteúdos publicados no canal e escolha
-              o estudo que deseja assistir.
-            </p>
-            <a
-              href="https://www.youtube.com/@escolasabatinaemresumo-f8f/videos"
-              target="_blank"
-              rel="noopener noreferrer">
-              Abrir a videoteca →
-            </a>
-          </article>
-
-        </div>
-
-        <div class="video-box">
-          <h3>Assista ao estudo em destaque</h3>
-
-          <p class="lead">
-            Acompanhe o estudo bíblico diretamente nesta página.
-          </p>
-
-          <div class="video-frame">
-            <iframe
-              src="https://www.youtube-nocookie.com/embed/uqMXCBQzgGE"
-              title="Estudo bíblico — Escola Sabatina em Resumo"
-              loading="lazy"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen>
-            </iframe>
-          </div>
-
-          <p class="notice">
-            Se o vídeo não puder ser reproduzido aqui, abra-o
-            diretamente no YouTube. Você pode trocar o vídeo em
-            destaque pelo ID de qualquer vídeo público do seu canal.
-          </p>
-
-          <a
-            class="btn gold"
-            href="https://www.youtube.com/watch?v=uqMXCBQzgGE"
-            target="_blank"
-            rel="noopener noreferrer">
-            ▶ Assistir no YouTube
-          </a>
-        </div>
-
-      </div>
-    </section>
-
-    <section
-      class="section"
-      id="devocionais"
-      style="background:#fff">
-
-      <div class="wrap">
-        <h2>Minuto com Deus</h2>
-
-        <p class="lead">
-          Uma palavra de fé para fortalecer o seu coração.
-        </p>
-
-        <div class="devotional">
-          <strong>Para refletir</strong>
-
-          <blockquote>
-            “Entrega o teu caminho ao Senhor; confia nele,
-            e ele tudo fará.”
-          </blockquote>
-
-          <span>Salmo 37:5</span>
-
-          <div class="devotional-action">
-            <a
-              class="btn gold"
-              href="https://www.youtube.com/@escolasabatinaemresumo-f8f/videos"
-              target="_blank"
-              rel="noopener noreferrer">
-              Assistir às mensagens
-            </a>
-          </div>
-        </div>
-      </div>
-
-    </section>
-
-    <section class="section" id="canal">
-      <div class="wrap channel-section">
-
-        <h2>Vamos estudar a Bíblia juntos?</h2>
-
-        <p class="lead">
-          Inscreva-se no canal, acompanhe os novos conteúdos
-          e compartilhe com alguém que precisa de uma palavra
-          de esperança.
-        </p>
-
-        <a
-          class="btn gold"
-          href="https://www.youtube.com/@escolasabatinaemresumo-f8f?sub_confirmation=1"
-          target="_blank"
-          rel="noopener noreferrer">
-          🔔 Inscrever-se no canal
-        </a>
-
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <div class="wrap">
-      <p><strong>Escola Sabatina em Resumo</strong></p>
-
-      <p>Que a Palavra de Deus ilumine o seu caminho.</p>
-
-      <p class="small">
-        Estudos bíblicos, lições da Escola Sabatina e devocionais.
-      </p>
+    <div id="canalAtual">
+        Selecione um canal para assistir
     </div>
-  </footer>
+
+    <div class="formulario">
+
+        <h3>➕ Adicionar novo canal</h3>
+
+        <input
+            type="text"
+            id="nome"
+            placeholder="Nome do canal"
+        >
+
+        <input
+            type="url"
+            id="link"
+            placeholder="Cole o link IPTV aqui"
+        >
+
+        <button class="adicionar" onclick="adicionarCanal()">
+            SALVAR CANAL
+        </button>
+
+    </div>
+
+    <h3>📡 Minha lista de canais</h3>
+
+    <div class="lista" id="lista"></div>
+
+</div>
+
+<footer>
+    👑 FidalgoIPTV © 2026<br>
+    Sua TV, sem limites.
+</footer>
+
+<script>
+
+let canais = JSON.parse(
+    localStorage.getItem("fidalgoCanais") || "[]"
+);
+
+const video = document.getElementById("video");
+
+function salvar() {
+    localStorage.setItem(
+        "fidalgoCanais",
+        JSON.stringify(canais)
+    );
+}
+
+function adicionarCanal() {
+
+    const nome = document.getElementById("nome").value.trim();
+    const link = document.getElementById("link").value.trim();
+
+    if (!nome || !link) {
+        alert("Preencha o nome e o link do canal!");
+        return;
+    }
+
+    try {
+        const url = new URL(link);
+
+        if (!["http:", "https:"].includes(url.protocol)) {
+            throw new Error();
+        }
+    } catch {
+        alert("Digite um link válido!");
+        return;
+    }
+
+    canais.push({
+        id: Date.now() + Math.random(),
+        nome: nome,
+        link: link
+    });
+
+    salvar();
+    mostrarCanais();
+
+    document.getElementById("nome").value = "";
+    document.getElementById("link").value = "";
+
+}
+
+function mostrarCanais() {
+
+    const lista = document.getElementById("lista");
+
+    lista.innerHTML = "";
+
+    if (canais.length === 0) {
+        lista.innerHTML =
+        '<div class="vazio">Nenhum canal salvo ainda.</div>';
+        return;
+    }
+
+    canais.forEach(canal => {
+
+        const item = document.createElement("div");
+        item.className = "canal";
+
+        const titulo = document.createElement("strong");
+        titulo.textContent = canal.nome;
+
+        const assistir = document.createElement("button");
+        assistir.className = "assistir";
+        assistir.textContent = "▶ ASSISTIR";
+        assistir.onclick = () => reproduzir(canal);
+
+        const excluir = document.createElement("button");
+        excluir.className = "excluir";
+        excluir.textContent = "✖ EXCLUIR";
+        excluir.onclick = () => excluirCanal(canal.id);
+
+        item.append(titulo, assistir, excluir);
+
+        lista.appendChild(item);
+
+    });
+}
+
+function reproduzir(canal) {
+
+    document.getElementById("canalAtual").textContent =
+    "▶ Assistindo: " + canal.nome;
+
+    video.src = canal.link;
+    video.load();
+
+    video.play().catch(() => {
+        alert(
+            "Não foi possível reproduzir este canal. " +
+            "Verifique o link e a compatibilidade do formato."
+        );
+    });
+
+}
+
+function excluirCanal(id) {
+
+    if (!confirm("Deseja excluir este canal?")) return;
+
+    const canalAtual = canais.find(c => c.id === id);
+
+    canais = canais.filter(c => c.id !== id);
+
+    salvar();
+    mostrarCanais();
+
+    if (canalAtual && video.getAttribute("src") === canalAtual.link) {
+
+        video.pause();
+        video.removeAttribute("src");
+        video.load();
+
+        document.getElementById("canalAtual").textContent =
+        "Selecione um canal para assistir";
+    }
+}
+
+// Carregar canais salvos
+mostrarCanais();
+
+</script>
 
 </body>
-           </html>
+</html>
