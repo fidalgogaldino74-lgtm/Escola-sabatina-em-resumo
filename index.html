@@ -3,167 +3,184 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>FidalgoIPTV</title>
 
 <style>
-* {
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
-    margin: 0;
-    background: #090711;
-    color: white;
-    font-family: Arial, sans-serif;
+  margin: 0;
+  background: #0b0712;
+  color: white;
+  font-family: Arial, sans-serif;
 }
 
 header {
-    background: linear-gradient(120deg, #160a29, #31005c);
-    padding: 22px 10px;
-    text-align: center;
-    border-bottom: 2px solid #a000ff;
+  text-align: center;
+  padding: 22px;
+  background: linear-gradient(120deg,#160525,#400078);
+  border-bottom: 2px solid #a000ff;
 }
 
 .logo {
-    font-size: 29px;
-    font-weight: bold;
-    color: white;
-    text-shadow: 0 0 12px #a000ff;
+  font-size: 29px;
+  font-weight: bold;
 }
 
-.logo span {
-    color: #c000ff;
-}
+.logo span { color: #d000ff; }
 
 .slogan {
-    font-size: 11px;
-    color: #d6baff;
-    letter-spacing: 3px;
-    margin-top: 6px;
+  font-size: 11px;
+  letter-spacing: 3px;
+  margin-top: 7px;
+  color: #d6baff;
 }
 
 .container {
-    max-width: 900px;
-    margin: auto;
-    padding: 15px;
+  max-width: 950px;
+  margin: auto;
+  padding: 15px;
 }
 
 .player {
-    background: #000;
-    border: 2px solid #8100d9;
-    border-radius: 12px;
-    overflow: hidden;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    box-shadow: 0 0 15px #51008a;
+  background: #000;
+  border: 2px solid #9000df;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
 }
 
 video {
-    width: 100%;
-    height: 100%;
-    background: black;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: #000;
 }
 
-#canalAtual {
-    padding: 15px;
-    text-align: center;
-    color: #d000ff;
-    font-weight: bold;
+#atual {
+  text-align: center;
+  color: #d000ff;
+  padding: 13px;
 }
 
-.formulario {
-    background: #171321;
-    border: 1px solid #512078;
-    padding: 18px;
-    border-radius: 12px;
-    margin-top: 20px;
+#status {
+  text-align: center;
+  color: #c9b5d8;
+  font-size: 12px;
+  min-height: 18px;
 }
 
-h3 {
-    color: #d000ff;
-    margin-top: 5px;
+.form {
+  background: #191321;
+  border: 1px solid #542477;
+  padding: 16px;
+  border-radius: 12px;
+  margin-top: 15px;
 }
 
-input {
-    width: 100%;
-    padding: 14px;
-    margin: 7px 0;
-    border: 1px solid #502078;
-    border-radius: 7px;
-    background: #241b30;
-    color: white;
-    outline: none;
-}
-
-input:focus {
-    border-color: #d000ff;
+input, select {
+  width: 100%;
+  padding: 13px;
+  margin: 7px 0;
+  border-radius: 7px;
+  border: 1px solid #512276;
+  background: #271c32;
+  color: white;
 }
 
 button {
-    border: none;
-    padding: 12px;
-    border-radius: 7px;
-    cursor: pointer;
-    font-weight: bold;
+  border: 0;
+  border-radius: 7px;
+  padding: 12px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-.adicionar {
-    background: linear-gradient(90deg, #8100dc, #d000ff);
-    color: white;
-    width: 100%;
-    margin-top: 10px;
+.add {
+  width: 100%;
+  background: #a000ed;
+  color: white;
+}
+
+h3 { color: #d000ff; }
+
+.categorias {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 9px;
+  margin: 15px 0;
+}
+
+.cat {
+  background: #21152e;
+  color: white;
+  border: 1px solid #542477;
+  padding: 14px 7px;
+  text-align: center;
+  min-height: 65px;
+}
+
+.cat.ativa {
+  background: #8000bc;
+  border: 1px solid #e000ff;
+}
+
+.cat small {
+  display: block;
+  color: #d5b7eb;
+  margin-top: 5px;
 }
 
 .lista {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 10px;
-    margin-top: 15px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(135px,1fr));
+  gap: 10px;
 }
 
 .canal {
-    background: #171321;
-    border: 1px solid #512078;
-    padding: 14px;
-    border-radius: 10px;
-    text-align: center;
-    overflow-wrap: anywhere;
-}
-
-.canal strong {
-    display: block;
-    margin-bottom: 10px;
+  background: #191321;
+  border: 1px solid #542477;
+  border-radius: 10px;
+  padding: 13px;
+  text-align: center;
+  overflow-wrap: anywhere;
 }
 
 .canal button {
-    width: 100%;
-    margin-top: 7px;
+  width: 100%;
+  margin-top: 7px;
 }
 
 .assistir {
-    background: #8c00e6;
-    color: white;
+  background: #8700d3;
+  color: white;
 }
 
 .excluir {
-    background: #b51e40;
-    color: white;
+  background: #b51e40;
+  color: white;
 }
 
 .vazio {
-    color: #aaa;
-    text-align: center;
-    padding: 20px;
-    grid-column: 1 / -1;
+  color: #999;
+  text-align: center;
+  padding: 20px;
+  grid-column: 1/-1;
 }
 
 footer {
-    text-align: center;
-    color: #8d7b9e;
-    padding: 25px 10px;
-    font-size: 12px;
+  text-align: center;
+  padding: 25px;
+  color: #87748f;
+  font-size: 12px;
+}
+
+.aviso {
+  font-size: 12px;
+  color: #c8b8d2;
+  line-height: 1.5;
+  margin-top: 10px;
 }
 </style>
 </head>
@@ -171,183 +188,387 @@ footer {
 <body>
 
 <header>
-    <div class="logo">👑 Fidalgo<span>IPTV</span></div>
-    <div class="slogan">SUA TV, SEM LIMITES</div>
+  <div class="logo">👑 Fidalgo<span>IPTV</span></div>
+  <div class="slogan">SUA TV, SEM LIMITES</div>
 </header>
 
 <div class="container">
 
-    <div class="player">
-        <video id="video" controls playsinline></video>
+  <div class="player">
+    <video id="video" controls playsinline></video>
+  </div>
+
+  <div id="atual">Selecione um canal para assistir</div>
+  <div id="status">Player pronto.</div>
+
+  <div class="form">
+
+    <h3>➕ Cadastrar novo canal</h3>
+
+    <input id="nome"
+      placeholder="Nome do canal (Ex.: Sony Movies)">
+
+    <input id="link"
+      type="url"
+      inputmode="url"
+      placeholder="Link individual .m3u8">
+
+    <select id="categoria">
+      <option value="TV Aberta">📺 TV Aberta</option>
+      <option value="Desenhos">🧸 Desenhos</option>
+      <option value="Entretenimento">🎭 Entretenimento</option>
+      <option value="Notícias">📰 Notícias</option>
+      <option value="Esportes">⚽ Esportes</option>
+      <option value="Filmes">🎬 Filmes</option>
+      <option value="Séries">📽️ Séries</option>
+      <option value="Infantil">👶 Infantil</option>
+      <option value="Documentários">🌎 Documentários</option>
+      <option value="Música">🎵 Música</option>
+      <option value="Outros">📁 Outros</option>
+    </select>
+
+    <button class="add" onclick="adicionar()">
+      SALVAR CANAL
+    </button>
+
+    <div class="aviso">
+      Utilize links de transmissões que você tem autorização para acessar.
+      A reprodução depende da compatibilidade do servidor.
     </div>
 
-    <div id="canalAtual">
-        Selecione um canal para assistir
-    </div>
+  </div>
 
-    <div class="formulario">
+  <h3>📡 Categorias</h3>
 
-        <h3>➕ Adicionar novo canal</h3>
+  <div class="categorias" id="categorias"></div>
 
-        <input
-            type="text"
-            id="nome"
-            placeholder="Nome do canal"
-        >
+  <h3 id="titulo">Todos os canais</h3>
 
-        <input
-            type="url"
-            id="link"
-            placeholder="Cole o link IPTV aqui"
-        >
-
-        <button class="adicionar" onclick="adicionarCanal()">
-            SALVAR CANAL
-        </button>
-
-    </div>
-
-    <h3>📡 Minha lista de canais</h3>
-
-    <div class="lista" id="lista"></div>
+  <div class="lista" id="lista"></div>
 
 </div>
 
 <footer>
-    👑 FidalgoIPTV © 2026<br>
-    Sua TV, sem limites.
+  👑 FidalgoIPTV © 2026
+  <br>Sua TV, sem limites.
 </footer>
+
+<!-- Biblioteca para reprodução HLS -->
+<script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script>
 
 <script>
 
-let canais = JSON.parse(
+let canais = [];
+
+try {
+  const dados = JSON.parse(
     localStorage.getItem("fidalgoCanais") || "[]"
-);
+  );
 
-const video = document.getElementById("video");
-
-function salvar() {
-    localStorage.setItem(
-        "fidalgoCanais",
-        JSON.stringify(canais)
-    );
+  if (Array.isArray(dados)) {
+    canais = dados.map(c => ({
+      ...c,
+      categoria: c.categoria || "Outros"
+    }));
+  }
+} catch(e) {
+  canais = [];
 }
 
-function adicionarCanal() {
+let categoriaAtual = "Todos";
+let hls = null;
 
-    const nome = document.getElementById("nome").value.trim();
-    const link = document.getElementById("link").value.trim();
+const video = document.getElementById("video");
+const statusEl = document.getElementById("status");
 
-    if (!nome || !link) {
-        alert("Preencha o nome e o link do canal!");
-        return;
+const cats = [
+  "TV Aberta",
+  "Desenhos",
+  "Entretenimento",
+  "Notícias",
+  "Esportes",
+  "Filmes",
+  "Séries",
+  "Infantil",
+  "Documentários",
+  "Música",
+  "Outros"
+];
+
+const ico = {
+  "TV Aberta":"📺",
+  "Desenhos":"🧸",
+  "Entretenimento":"🎭",
+  "Notícias":"📰",
+  "Esportes":"⚽",
+  "Filmes":"🎬",
+  "Séries":"📽️",
+  "Infantil":"👶",
+  "Documentários":"🌎",
+  "Música":"🎵",
+  "Outros":"📁"
+};
+
+function salvar() {
+  try {
+    localStorage.setItem(
+      "fidalgoCanais",
+      JSON.stringify(canais)
+    );
+    return true;
+  } catch(e) {
+    alert("Não foi possível salvar no navegador.");
+    return false;
+  }
+}
+
+function adicionar() {
+
+  const nome = document.getElementById("nome").value.trim();
+  const link = document.getElementById("link").value.trim();
+  const categoria = document.getElementById("categoria").value;
+
+  if (!nome || !link) {
+    alert("Preencha o nome e o link!");
+    return;
+  }
+
+  try {
+    const u = new URL(link);
+
+    if (!["http:","https:"].includes(u.protocol)) {
+      throw new Error();
     }
 
-    try {
-        const url = new URL(link);
+  } catch(e) {
+    alert("Digite um link HTTP ou HTTPS válido.");
+    return;
+  }
 
-        if (!["http:", "https:"].includes(url.protocol)) {
-            throw new Error();
-        }
-    } catch {
-        alert("Digite um link válido!");
-        return;
-    }
+  canais.push({
+    id: Date.now() + Math.random(),
+    nome,
+    link,
+    categoria
+  });
 
-    canais.push({
-        id: Date.now() + Math.random(),
-        nome: nome,
-        link: link
-    });
+  if (!salvar()) {
+    canais.pop();
+    return;
+  }
 
-    salvar();
-    mostrarCanais();
+  document.getElementById("nome").value = "";
+  document.getElementById("link").value = "";
 
-    document.getElementById("nome").value = "";
-    document.getElementById("link").value = "";
+  categoriaAtual = categoria;
 
+  atualizar();
+
+  statusEl.textContent = "Canal salvo em " + categoria + ".";
+}
+
+function mostrarCategorias() {
+
+  const area = document.getElementById("categorias");
+  area.innerHTML = "";
+
+  const all = document.createElement("button");
+
+  all.className =
+    "cat " + (categoriaAtual === "Todos" ? "ativa" : "");
+
+  all.innerHTML =
+    "🌐 TODOS OS CANAIS<small>" + canais.length + " canais</small>";
+
+  all.onclick = () => selecionar("Todos");
+
+  area.appendChild(all);
+
+  cats.forEach(cat => {
+
+    const b = document.createElement("button");
+
+    b.className =
+      "cat " + (categoriaAtual === cat ? "ativa" : "");
+
+    b.innerHTML =
+      ico[cat] + " " + cat +
+      "<small>" +
+      canais.filter(c => c.categoria === cat).length +
+      " canais</small>";
+
+    b.onclick = () => selecionar(cat);
+
+    area.appendChild(b);
+
+  });
+}
+
+function selecionar(cat) {
+  categoriaAtual = cat;
+  atualizar();
 }
 
 function mostrarCanais() {
 
-    const lista = document.getElementById("lista");
+  const area = document.getElementById("lista");
+  area.innerHTML = "";
 
-    lista.innerHTML = "";
+  const itens = canais.filter(c =>
+    categoriaAtual === "Todos" ||
+    c.categoria === categoriaAtual
+  );
 
-    if (canais.length === 0) {
-        lista.innerHTML =
-        '<div class="vazio">Nenhum canal salvo ainda.</div>';
-        return;
-    }
+  document.getElementById("titulo").textContent =
+    categoriaAtual === "Todos"
+      ? "Todos os canais"
+      : (ico[categoriaAtual] || "📁") + " " + categoriaAtual;
 
-    canais.forEach(canal => {
+  if (!itens.length) {
+    area.innerHTML =
+      '<div class="vazio">Nenhum canal nesta categoria ainda.</div>';
+    return;
+  }
 
-        const item = document.createElement("div");
-        item.className = "canal";
+  itens.forEach(c => {
 
-        const titulo = document.createElement("strong");
-        titulo.textContent = canal.nome;
+    const d = document.createElement("div");
+    d.className = "canal";
 
-        const assistir = document.createElement("button");
-        assistir.className = "assistir";
-        assistir.textContent = "▶ ASSISTIR";
-        assistir.onclick = () => reproduzir(canal);
+    const n = document.createElement("strong");
+    n.textContent = c.nome;
 
-        const excluir = document.createElement("button");
-        excluir.className = "excluir";
-        excluir.textContent = "✖ EXCLUIR";
-        excluir.onclick = () => excluirCanal(canal.id);
+    const p = document.createElement("button");
+    p.className = "assistir";
+    p.textContent = "▶ ASSISTIR";
+    p.onclick = () => reproduzir(c);
 
-        item.append(titulo, assistir, excluir);
+    const x = document.createElement("button");
+    x.className = "excluir";
+    x.textContent = "✖ EXCLUIR";
+    x.onclick = () => excluir(c.id);
 
-        lista.appendChild(item);
+    d.append(n,p,x);
+    area.appendChild(d);
 
-    });
+  });
 }
 
-function reproduzir(canal) {
+function parar() {
 
-    document.getElementById("canalAtual").textContent =
-    "▶ Assistindo: " + canal.nome;
+  if (hls) {
+    hls.destroy();
+    hls = null;
+  }
 
-    video.src = canal.link;
+  video.pause();
+  video.removeAttribute("src");
+  video.load();
+}
+
+function reproduzir(c) {
+
+  parar();
+
+  document.getElementById("atual").textContent = "▶ " + c.nome;
+
+  statusEl.textContent = "Conectando à transmissão…";
+
+  const isHls = /\.m3u8($|[?#])/i.test(c.link);
+
+  if (isHls && window.Hls && Hls.isSupported()) {
+
+    hls = new Hls();
+
+    hls.loadSource(c.link);
+    hls.attachMedia(video);
+
+    hls.on(Hls.Events.MANIFEST_PARSED, () => {
+
+      statusEl.textContent = "Transmissão carregada.";
+
+      video.play().catch(() => {
+        statusEl.textContent =
+          "Toque em ▶ no player para iniciar.";
+      });
+
+    });
+
+    hls.on(Hls.Events.ERROR, (ev,data) => {
+
+      if (data.fatal) {
+
+        statusEl.textContent =
+          "Falha: confira o link, CORS, HTTPS ou disponibilidade do servidor.";
+
+        hls.destroy();
+        hls = null;
+
+      }
+
+    });
+
+  } else if (
+    video.canPlayType("application/vnd.apple.mpegurl") ||
+    !isHls
+  ) {
+
+    video.src = c.link;
     video.load();
 
-    video.play().catch(() => {
-        alert(
-            "Não foi possível reproduzir este canal. " +
-            "Verifique o link e a compatibilidade do formato."
-        );
-    });
+    video.play()
+      .then(() => {
+        statusEl.textContent = "Reproduzindo.";
+      })
+      .catch(() => {
+        statusEl.textContent =
+          "Não iniciou. Confira o link e toque em ▶.";
+      });
+
+  } else {
+
+    statusEl.textContent =
+      "Este navegador não oferece suporte HLS. Atualize o navegador.";
+
+  }
 
 }
 
-function excluirCanal(id) {
+function excluir(id) {
 
-    if (!confirm("Deseja excluir este canal?")) return;
+  if (!confirm("Deseja excluir este canal?")) return;
 
-    const canalAtual = canais.find(c => c.id === id);
+  const c = canais.find(x => x.id === id);
 
-    canais = canais.filter(c => c.id !== id);
+  canais = canais.filter(x => x.id !== id);
 
-    salvar();
-    mostrarCanais();
+  salvar();
 
-    if (canalAtual && video.getAttribute("src") === canalAtual.link) {
+  if (
+    c &&
+    document.getElementById("atual").textContent === "▶ " + c.nome
+  ) {
 
-        video.pause();
-        video.removeAttribute("src");
-        video.load();
+    parar();
 
-        document.getElementById("canalAtual").textContent =
-        "Selecione um canal para assistir";
-    }
+    document.getElementById("atual").textContent =
+      "Selecione um canal para assistir";
+
+    statusEl.textContent = "Player pronto.";
+
+  }
+
+  atualizar();
 }
 
-// Carregar canais salvos
-mostrarCanais();
+function atualizar() {
+  mostrarCategorias();
+  mostrarCanais();
+}
+
+atualizar();
 
 </script>
-
 </body>
-</html>
+          </html>
+        
